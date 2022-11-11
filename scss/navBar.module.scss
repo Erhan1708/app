@@ -1,0 +1,33 @@
+.container__nav{
+   box-sizing: border-box;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   img{
+      cursor: pointer;
+   }
+   .content__nav{
+      display: flex;
+      li{
+         margin: 20px;
+         list-style-type: none;
+         font-size: 19px;
+         a{
+            text-decoration: none;
+            color: gray;
+            cursor: pointer;
+
+            &.active,
+            &:hover{
+            color: #000 !important;
+         }
+         }
+         
+      }
+   }
+   .content__nav__icon{
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+   }
+}

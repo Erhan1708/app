@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+html,
+body{
+   margin: 0;
+   font-family: 'Montserrat', sans-serif;
+}
+#__next{
+   min-height: 100vh;
+   display: grid;
+   grid-auto-rows: auto 1fr auto;
+}
+main{
+   padding: 20px;
+   min-height: 100%;
+}
+footer{
+   background-color: gainsboro;
+}

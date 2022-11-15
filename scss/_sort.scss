@@ -1,13 +1,36 @@
 .sort_products {
    display: flex;
    justify-content: end;
+   position: relative;
+   right: 50px;
 
    span {
       font-weight: 600;
    }
-
-   select {
-      border: 0;
-      width: 140px;
+   b{
+      cursor: pointer;
+      text-decoration: underline;
+      color: orangered;
+      margin-left: 4px;
+      z-index: 0;
+      &:hover {
+         color: gray;
+      }
    }
+   ul {
+      background-color: white;
+      margin: 10px;
+      position: absolute;
+      top: 10px;
+      right: -10px;
+      z-index: 1;
+      li {
+         cursor: pointer;
+         list-style-type: none;
+         &.active {
+            color: orangered;
+         }
+      }
+   }
+
 }

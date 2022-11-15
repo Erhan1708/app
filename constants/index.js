@@ -23,33 +23,30 @@ export const footerNavBar = [
 ]
 
 export const list = [
+   //'По Умолчанию', 'Рейтинг (низкая>высокая)', 'Рейтинг (высокая>низкая)', 'Цена (низкая>высокая)', 'Цена (высокая>низкая)', 'Сначала новинки'
+
    {
-      id:'1',
-      name:'По Умолчанию',
+      name: 'По Умолчанию',
+      sortProperty: 'default'
    },
    {
-      id:'2',
       name: 'Рейтинг (низкая>высокая)',
-      sort:'rating',
+      sortProperty:'rating',
    },
    {
-      id:'3',
       name: 'Рейтинг (высокая>низкая)',
-      sort:'rating',
+      sortProperty:'-rating',
    },
    {
-      id:'4',
       name: 'Цена (низкая>высокая)',
-      sort:'price',
+      sortProperty:'price',
    },
    {
-      id:'5',
       name: 'Цена (высокая>низкая)',
-      sort:'price',
+      sortProperty:'-price',
    },
    {
-      id:'6',
       name:'Сначала новинки',
-      sort:'productConditionStatus',
+      sortProperty:'productConditionStatus',
    }
 ]

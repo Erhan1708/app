@@ -9,23 +9,28 @@ import Sort from "../../components/Sort";
 const Products = () => {
 
    const [products, setProducts] = useState([])
-   const [sortType, setSortType]=useState([])
+   const [sortType, setSortType] = useState({
+      name: 'По Умолчанию',
+      sortProperty: 'default',
+   })
 
    useEffect(() => {
-      axios.get("https://test-docs.stores.kg/api/products?order%5Bprice%5D=asc", {
+      axios.get(`https://test-docs.stores.kg/api/products?
+      order%5Bprice=${sortType.sortProperty.replace('-','')}%5D${sortType.sortProperty.includes('-')?'asc':'desc'}
+      `, {
          headers: {
             "Content-type": "application/json",
             "api-token": "f1cdecbeba8f4a1547d3dc0db9376fec",
          }
       })
          .then((response) => {
-            console.log(response);
             setProducts(response.data["hydra:member"])
          })
          .catch((error) => {
             console.error(error);
          })
-   }, [])
+   }, [sortType])
+// order%5Bprice%5D=asc      &order=
 
    return (
       <>

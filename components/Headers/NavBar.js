@@ -5,12 +5,11 @@ import { navBar } from "../../constants/index"
 import { BsSearch } from "react-icons/bs"
 import { FaOpencart } from "react-icons/fa"
 import logo from "../../public/logoCalifornia.png"
-import styles from "../../scss/navBar.module.scss"
 
 const NavBar = () => {
    const { pathname } = useRouter()
    return (
-      <nav className={styles.container__nav}>
+      <nav className="container__nav">
          <Link href="/">
             <Image
                src={logo}
@@ -19,16 +18,16 @@ const NavBar = () => {
             />
          </Link>
 
-         <ul className={styles.content__nav}>
+         <ul className="content__nav">
             {navBar.map(item => (
                <li key={item.id}>
-                  <Link className={pathname === item.path ? styles.active : null} href={item.path}>{item.title}</Link>
+                  <Link className={pathname === item.path ? "active" : null} href={item.path}>{item.title}</Link>
                </li>
             ))}
          </ul>
          <div>
-            <BsSearch className={styles.content__nav__icon} />
-            <FaOpencart className={styles.content__nav__icon} />
+            <BsSearch className="content__nav__icon" />
+            <FaOpencart className="content__nav__icon" />
          </div>
       </nav>
    )

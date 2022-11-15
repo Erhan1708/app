@@ -1,0 +1,13 @@
+.sort_products {
+   display: flex;
+   justify-content: end;
+
+   span {
+      font-weight: 600;
+   }
+
+   select {
+      border: 0;
+      width: 140px;
+   }
+}

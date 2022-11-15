@@ -1,5 +1,17 @@
+import Head from "next/head"
+
 const Home = () => (
-    <div>Home</div>
+   <>
+      <Head>
+         <title>
+            California store
+         </title>
+   </Head>
+      <div>
+         Home
+      </div>
+   </>
+   
 )
 
 export default Home

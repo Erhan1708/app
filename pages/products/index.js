@@ -16,7 +16,7 @@ const Products = () => {
 
    useEffect(() => {
       axios.get(`https://test-docs.stores.kg/api/products?
-      order%5Bprice=${sortType.sortProperty.replace('-','')}%5D${sortType.sortProperty.includes('-')?'asc':'desc'}
+      sortBy=${sortType.sortProperty.replace('-','')}&order=${sortType.sortProperty.includes('-')?'asc':'desc'}
       `, {
          headers: {
             "Content-type": "application/json",
@@ -30,7 +30,7 @@ const Products = () => {
             console.error(error);
          })
    }, [sortType])
-// order%5Bprice%5D=asc      &order=
+// order%5Bprice%5D=asc      price=
 
    return (
       <>

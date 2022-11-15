@@ -11,7 +11,7 @@ const Products = () => {
    const [products, setProducts] = useState([])
    const [sortType, setSortType] = useState({
       name: 'По Умолчанию',
-      sortProperty: 'default',
+      sortProperty: '',
    })
 
    useEffect(() => {

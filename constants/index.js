@@ -27,23 +27,23 @@ export const list = [
 
    {
       name: 'По Умолчанию',
-      sortProperty: 'default'
+      sortProperty: ''
    },
    {
       name: 'Рейтинг (низкая>высокая)',
-      sortProperty:'rating',
-   },
-   {
-      name: 'Рейтинг (высокая>низкая)',
       sortProperty:'-rating',
    },
    {
+      name: 'Рейтинг (высокая>низкая)',
+      sortProperty:'rating',
+   },
+   {
       name: 'Цена (низкая>высокая)',
-      sortProperty:'price',
+      sortProperty:'-price',
    },
    {
       name: 'Цена (высокая>низкая)',
-      sortProperty:'-price',
+      sortProperty:'price',
    },
    {
       name:'Сначала новинки',

@@ -15,7 +15,7 @@ const Products = () => {
    })
 
    useEffect(() => {
-      axios.get(`https://test-docs.stores.kg/api/products?sort=${sortType.sortProperty.replace('-','')}&order=${sortType.sortProperty.includes('-')?'asc':'desc'}
+      axios.get(`https://test-docs.stores.kg/api/products?order%5B${sortType.sortProperty.replace('-','')}%5D=${sortType.sortProperty.includes('-')?'asc':'desc'}
       `, {
          headers: {
             "Content-type": "application/json",
@@ -23,14 +23,15 @@ const Products = () => {
          }
       })
          .then((response) => {
+            console.log(response);
             setProducts(response.data["hydra:member"])
          })
          .catch((error) => {
             console.error(error);
          })
+      
    }, [sortType])
-// order%5Bprice%5D=asc      price=
-
+//order=&sort=
    return (
       <>
          <Head>

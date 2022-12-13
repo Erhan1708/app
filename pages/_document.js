@@ -6,8 +6,8 @@ const Document = () => {
 		<Html>
 			<Head>
 				<body>
-					<Main>
-						<NextScript>
+					<Main/>
+						<NextScript/>
 							<script dangerouslySetInnerHTML={{
 								__html: ` (function (m, e, t, r, i, k, a) {
 									m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
@@ -25,11 +25,9 @@ const Document = () => {
 							/>
 							<noscript>
 								<div>
-									<img src="https://mc.yandex.ru/watch/91654746" style="position:absolute; left:-9999px;" alt="" />
+                     <img src="https://mc.yandex.ru/watch/91654746" alt="" />
 								</div>
 							</noscript>
-						</NextScript>
-					</Main>
 				</body>
 			</Head>
 		</Html>

@@ -19,7 +19,7 @@ const Products = () => {
       `, {
          headers: {
             "Content-type": "application/json",
-            "api-token": "f1cdecbeba8f4a1547d3dc0db9376fec",
+            "api-token": "00e82b9c923ba5f51821bc8215004d26",
          }
       })
          .then((response) => {

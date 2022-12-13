@@ -61,7 +61,7 @@ const Products = () => {
                         <h4 className="product_descriptions_price">{item.price} сом</h4>
                         <p className="product_descriptions_name">{item.name}/ {item.colorName}</p>
                      </div>
-                     <div className="product_rating" data-total-value="0">
+                     <div className="product_rating" data-total-value={item.rating}>
                         <AiOutlineStar className="block_rating" data-item-value="5" />
                         <AiOutlineStar className="block_rating" data-item-value="4" />
                         <AiOutlineStar className="block_rating" data-item-value="3" />

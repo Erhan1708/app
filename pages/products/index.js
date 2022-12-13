@@ -50,7 +50,7 @@ const Products = () => {
                            <Image
                               className="block_img"
                               src={item.imagePath}
-                              alt="product"
+                              alt="no product photos"
                               width={200}
                               height={250}
                            />

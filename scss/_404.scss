@@ -29,16 +29,17 @@
       color: #211b19;
    }
    a{
+      border-radius: 6px;
       text-decoration: none;
       font-size: 25px;
       padding: 7px 10px;
       color: #211b19;
       background-color: gray;
       text-transform: uppercase;
+      transition: 1s all;
       &:hover{
          background-color:#211b19;
          color: #fff;
-         transition: 1s all;
       }
    }
    }

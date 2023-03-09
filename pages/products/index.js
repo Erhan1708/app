@@ -4,7 +4,8 @@ import axios from "axios"
 import { AiOutlineStar } from "react-icons/ai";
 import { useState, useEffect } from "react"
 import Sort from "../../components/Sort";
-
+import { DEFAULT_IMG } from "../../constants";
+import toast, { Toaster } from "react-hot-toast";
 
 const Products = () => {
 
@@ -15,7 +16,7 @@ const Products = () => {
    })
 
    useEffect(() => {
-      axios.get(`https://test-docs.stores.kg/api/products?order%5B${sortType.sortProperty.replace('-','')}%5D=${sortType.sortProperty.includes('-')?'asc':'desc'}
+      axios.get(`https://test-docs.stores.kg/api/products?category=115&order%5B${sortType.sortProperty.replace('-','')}%5D=${sortType.sortProperty.includes('-')?'asc':'desc'}
       `, {
          headers: {
             "Content-type": "application/json",
@@ -27,11 +28,11 @@ const Products = () => {
             setProducts(response.data["hydra:member"])
          })
          .catch((error) => {
-            console.error(error);
+            toast.error( 'Ошибка сервера', error?.response?.data?.message)
          })
       
    }, [sortType])
-//order=&sort=
+   
    return (
       <>
          <Head>
@@ -40,7 +41,7 @@ const Products = () => {
             </title>
          </Head>
          <div className="products_container">
-            <Sort value={sortType} onChangeSort={(i)=> setSortType(i)} />
+            <Sort sortType={sortType} setSortType={setSortType}/>
             <div className="products_container_block">
                {products && products.map(item => (
                   <div className="product_block" key={item.id}>
@@ -49,7 +50,7 @@ const Products = () => {
                            <p className="block_status">{item.productConditionStatus}</p>
                            <Image
                               className="block_img"
-                              src={item.imagePath}
+                              src={item.imagePath ? item.imagePath : DEFAULT_IMG}
                               alt="no product photos"
                               width={200}
                               height={250}
@@ -61,7 +62,7 @@ const Products = () => {
                         <h4 className="product_descriptions_price">{item.price} сом</h4>
                         <p className="product_descriptions_name">{item.name}/ {item.colorName}</p>
                      </div>
-                     <div className="product_rating" data-total-value={item.rating}>
+                     <div className="product_rating" data-total-value={parseInt(item.rating)}>
                         <AiOutlineStar className="block_rating" data-item-value="5" />
                         <AiOutlineStar className="block_rating" data-item-value="4" />
                         <AiOutlineStar className="block_rating" data-item-value="3" />
@@ -72,7 +73,7 @@ const Products = () => {
                ))}
             </div>
          </div>
-
+         <Toaster/>
       </>
 
    )

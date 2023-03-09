@@ -1,44 +1,33 @@
 import { useState, useEffect, useRef } from "react"
 import { list } from "../constants"
 
-const Sort = ({ value, onChangeSort }) => {
+const Sort = ({ sortType, setSortType }) => {
    const [open, setOpen] = useState(false);
    const sortRef = useRef();
 
    const toggleVisiblePopup = () => {
-      setOpen(!open)
+         setOpen(!open)
    };
 
-   const handleOutsideClick = (e) => {
-      if (!e.path.includes(sortRef.current)) {
-         setOpen(false)
-      }
-   }
-
-   const onSelectItem = (i) => {
-      onChangeSort(i)
+   const onSelectItem = (item) => {
+      setSortType(item)
       setOpen(false)
    }
-
-   useEffect(() => {
-      document.body.addEventListener("click", handleOutsideClick)
-      console.log(sortRef.current );
-   }, []);
 
   return (
      <section ref={sortRef} className="sort_products">
         <span>
            Сортировать по:
         </span>
-        <b onClick={toggleVisiblePopup}>{value.name}</b>
+        <b onClick={toggleVisiblePopup}>{sortType.name}</b>
         {open &&
            <ul>
-           {list && list.map((obj, i) => (
+           {list && list.map((item) => (
               <li
-                 key={i}
-                 onClick={()=> onSelectItem(obj)}
-                 className={value.sortProperty === obj.sortProperty ? "active" : ""}>
-                 {obj.name}
+                 key={item.id}
+                 onClick={() => onSelectItem(item)}
+                 className={sortType.sortProperty === item.sortProperty ? "active" : ""}>
+                 {item.name}
               </li>
            ))}
         </ul>

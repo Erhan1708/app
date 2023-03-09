@@ -1,6 +1,10 @@
-/** @type {import('next').NextConfig} */
+
 const nextConfig = {
-   reactStrictMode: true,
+   env: {
+      title: 'California Store',
+      titleDescription: 'Apple Store',
+      api: 'https://docs.stores.kg/api'
+   },
    images: {
       domains: [
          'test-docs.stores.kg',
@@ -14,15 +18,6 @@ const nextConfig = {
          'static-s.aa-cdn.net'
       ],
    },
-   // images: {
-   //    remotePatterns: [
-   //       {
-   //          protocol: 'https',
-   //          hostname: 'test-docs.stores.kg',
-   //          pathname: '/images/product_images',
-   //       },
-   //    ],
-   // },
 }
 
 module.exports = nextConfig
